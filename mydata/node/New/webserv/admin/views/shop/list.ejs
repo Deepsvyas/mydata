@@ -1,0 +1,183 @@
+<%- include ../layouts/adminheader.ejs %>
+<%- include ../layouts/adminsidebar.ejs %>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-info">
+                    <div class="box-header">
+                        <div class="pull-left">
+                            <h3 class="box-title"> Shops List</h3>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#" class="btn btn-default back_to_history"> <span class="fa fa-arrow-left"> Go Back</a>
+                            <a href="#" class="btn btn-default refreshlist"> <span class="fa fa-refresh"></a>
+                            <a href="#" class="btn btn-info addShop"> <span class="fa fa-plus"> Add New </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <table id="shopTable" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="" >Sr. No.</th>
+                                    <th class="" >Shop Name</th>
+                                    <th class="" >Shop Id</th>
+                                    <th class="" > Email </th>
+                                    <th class="" >Contact Number</th>
+                                    <th class="" > Category</th>
+                                    <th class="" > Bank Details </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+<div class="modal fade" id="shopModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> Add/Edit Shop </h4>
+            </div>
+           <form role="form" id="shopFrm" name="shopFrm">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="shop_name"> Shop Name </label>
+                    <input type="text" class="form-control" id="shop_name"  name="shop_name" placeholder="Enter shop name..">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="shop_id"> Shop Id </label>
+                    <input type="text" class="form-control" id="shop_id"  name="shop_id" placeholder="Enter Shop Id..">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="email"> email </label>
+                    <input type="text" class="form-control" id="email"  name="email" placeholder="Enter email..">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="contact_no"> contact_no </label>
+                    <input type="text" class="form-control" id="contact_no"  name="contact_no" placeholder="Enter contact_no..">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="category"> category</label>
+                    <select id="category" name="category" class="form-control">
+                    <% for(var i in categories){ %>
+                           <option value="<%=i%>" ><%=categories[i]%></option>
+                    <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="location"> location</label>
+                    <input type="text" class="form-control" id="location"  name="location" placeholder="Enter location..">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="account_name"> account_name</label>
+                    <input type="text" class="form-control" id="account_name"  name="account_name" placeholder="Enter account..">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="account_number"> account_number</label>
+                    <input type="text" class="form-control" id="account_number"  name="account_number" placeholder="Enter account_number..">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="bank_name"> bank_name</label>
+                    <input type="text" class="form-control" id="bank_name"  name="bank_name" placeholder="Enter bank_name..">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="branch_name"> branch_name</label>
+                    <input type="text" class="form-control" id="branch_name"  name="branch_name" placeholder="Enter branch_name..">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="ifcs_code"> ifcs_code</label>
+                    <input type="text" class="form-control" id="ifcs_code"  name="ifcs_code" placeholder="Enter ifcs_code..">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="gst_no"> gst_no</label>
+                    <input type="text" class="form-control" id="gst_no"  name="gst_no" placeholder="Enter gst_no..">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="home_delivery"> home_delivery </label>
+                    <br>
+                    <label><input type="radio" value="yes" id="yes"  name="home_delivery"> Yes</label>
+                    <label><input type="radio" value="no" id="no"  name="home_delivery"> No</label>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="shop_available"> shop_available </label>
+                    <br>
+                    <label><input type="radio" value="yes" id="yes"  name="shop_available"> Yes</label>
+                    <label><input type="radio" value="no" id="no"  name="shop_available"> No</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="password"> password</label>
+                    <input type="text" class="form-control" id="password"  name="password" placeholder="Enter password..">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="conf_password"> conf_password</label>
+                    <input type="text" class="form-control" id="conf_password"  name="conf_password" placeholder="Enter conf_password..">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-success submtBtn" id="submtBtn" value="Submit"> 
+    </div>
+</form>
+        </div>
+    </div>
+</div>
+<script src="../../admin/shop/list.js"></script>
+
+<%- include ../layouts/adminfooter.ejs %>
