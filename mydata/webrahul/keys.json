@@ -1,0 +1,7 @@
+{
+  "mongoHost": "35.198.204.248",
+  "mongoPort": "27017",
+  "mongoDatabase": "ecommerce_app",
+  "mongoUser": "db_app_user",
+  "mongoPass": "$BcJTB9SP^"
+}

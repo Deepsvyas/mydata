@@ -1,0 +1,122 @@
+<%- include layouts/adminheader.ejs %>
+<%- include layouts/adminsidebar.ejs %>
+
+
+        
+<!-- Content Wrapper. Contains page content -->
+<link href="../../plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Manage Posts
+        </h1>
+
+    </section>
+    <section>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Customer</li>
+        </ol>
+    </section>
+
+
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Posts List</h3>
+                        <!--<h3 class="box-title">Customer List</h3> -->
+                    </div><!-- /.box-header -->		
+
+                    <div class="box-body">
+
+                        <div class="row pad">
+                            <div class="col-sm-6">
+                                <label style="margin-right: 10px;">
+
+                                </label>
+
+                            </div>
+                            <div class="box-tools">
+                                <div class="input-group">
+                                </div> 
+
+                                <div class="input-group">
+                                    <input type="text" id="post_title" name="post_title" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                    <div class="input-group-btn">
+                                        <button name='search' class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+
+
+                                </div> </form>
+                            </div>
+                        </div><!-- /.row -->
+                        <form method='post' name='contact_form' action="" id='contact_form'>
+                            <table id="example1" class="table table-bordered table-striped table-hover dataTable">
+                                <thead>
+                                    <tr>
+                                        <th class="" >Customer Id</th>
+                                        <th class="" >First Name</th>
+                                        <th class="" >Last Name</th>
+                                        <th class="" >Email</th>
+                                        <th class="" >Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=data[i].first_name%></td>
+                    <td><%=data[i].last_name%></td>
+                    <td><%=data[i].status%></td>
+                    <td><%=data[i].email%></td>
+                    <td>
+                        <a class="a-inside edit" href="../admin/users/edit/<%=data[i]._id%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../admin/users/delete/<%=data[i]._id%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+
+                                    <!--
+                                                                            <tr>
+                                                                            <td colspan="9" style="text-align:center;">
+                                                                             <b>Sorry, No Records Found! </b>
+                                                                            </td>
+                                                                            </tr>	
+                                    -->				
+
+
+                                </tbody>
+
+                            </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+
+
+
+<%- include layouts/adminfooter.ejs %>

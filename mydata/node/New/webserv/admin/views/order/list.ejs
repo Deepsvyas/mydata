@@ -1,0 +1,31 @@
+<%- include ../layouts/adminheader.ejs %>
+<%- include ../layouts/adminsidebar.ejs %>
+
+<link href="../../../plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-info">
+                    <div class="box-header">
+                        <div class="pull-left">
+                            <h3 class="box-title">Orders List</h3>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#" class="btn btn-default back_to_history"> <span class="fa fa-arrow-left"> Go Back</a>
+                            <a href="" class="btn btn-default refreshlist"> <span class="fa fa-refresh"></a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                    <div class="order_list_con">
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<script src="../../admin/order/list.js"></script>
+<%- include ../layouts/adminfooter.ejs %>

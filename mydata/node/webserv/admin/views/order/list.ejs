@@ -1,0 +1,68 @@
+<%- include ../layouts/adminheader.ejs %>
+<%- include ../layouts/adminsidebar.ejs %>
+
+<link href="../../../plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-info">
+                    <div class="box-header">
+                        <div class="pull-left">
+                            <h3 class="box-title">Orders List</h3>
+                        </div>
+                        <div class="pull-right">
+                            <a href="" class="btn btn-default refreshlist"> <span class="fa fa-refresh"></a>
+                            <a href="" class="btn btn-info addOrder"> <span class="fa fa-plus"> Add New </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row pad">
+                            <div class="box-tools">
+                                <div class="input-group">
+                                    <input type="text" id="post_title" name="post_title" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                    <div class="input-group-btn">
+                                        <button name='search' class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    <div class="order_list_con">
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+<div class="modal fade" id="orderModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> Add/Edit Order</h4>
+            </div>
+            <form role="form" id="orderFrm" name="orderFrm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="categoryname"> Category Name </label>
+                        <input type="text" class="form-control" id="categoryname"  name="categoryname" placeholder="Enter Category Name..">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-success submtBtn" id="submtBtn" value="Submit"> 
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script src="../../admin/order/list.js"></script>
+
+<%- include ../layouts/adminfooter.ejs %>
