@@ -1,0 +1,4 @@
+/node_modules/*
+/config/db.js 
+/bin/www
+package-lock.json
